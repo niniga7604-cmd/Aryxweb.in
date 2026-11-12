@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARYX WEB | Website Development &amp; Smart Booking Systems in Mumbai</title>
+  <meta name="description" content="ARYX WEB builds modern mobile-first websites, automated booking systems, and digital solutions for local businesses in Mumbai.">
+  <meta name="theme-color" content="#F4F7FC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ARYX WEB | Website Development &amp; Smart Booking Systems in Mumbai">
+  <meta property="og:description" content="Modern mobile-first websites, automated booking systems, and digital solutions for local businesses in Mumbai.">
+  <meta property="og:locale" content="en_IN">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563EB'/%3E%3Cstop offset='1' stop-color='%234F46E5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M16 7l8 18h-3.8L16 15.2 11.8 25H8z' fill='white'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+          colors: {
+            page: '#F4F7FC', ink: '#0F172A', body: '#64748B', soft: '#94A3B8',
+            line: '#E2E8F0', royal: '#2563EB', indigo2: '#4F46E5'
+          },
+          boxShadow: {
+            card: '0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.10)',
+            lift: '0 2px 4px rgba(15,23,42,0.05), 0 18px 36px -16px rgba(37,99,235,0.25)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ===== Base ===== */
+    html { scroll-behavior: smooth; }
+    body { background: #F4F7FC; color: #0F172A; font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    section[id] { scroll-margin-top: 5rem; }
+    :focus-visible { outline: 3px solid #2563EB; outline-offset: 3px; border-radius: 8px; }
+
+    /* ===== Brand gradient (used sparingly) ===== */
+    .grad { background: #2563EB; background-image: linear-gradient(135deg, #2563EB 0%, #4F46E5 100%); }
+    .grad-text { color: #2563EB; background-image: linear-gradient(135deg, #2563EB 0%, #4F46E5 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-grad { background: #2563EB; background-image: linear-gradient(135deg, #2563EB 0%, #4F46E5 100%); color: #fff; box-shadow: 0 8px 20px -8px rgba(37,99,235,0.55); transition: filter .2s ease, transform .2s ease; }
+    .btn-grad:hover { filter: brightness(1.08); }
+    .btn-grad:active { transform: translateY(1px); }
+
+    /* ===== Cards ===== */
+    .bento { background: #fff; border: 1px solid #E2E8F0; border-radius: 1.5rem; box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.10); transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+    .bento-hover:hover { border-color: #BFD3FB; box-shadow: 0 2px 4px rgba(15,23,42,0.05), 0 18px 36px -16px rgba(37,99,235,0.25); transform: translateY(-2px); }
+
+    /* ===== Subtle page-load reveal (hero only) ===== */
+    .rise { animation: rise .6s ease-out both; }
+    .rise-2 { animation: rise .6s .1s ease-out both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .arrow { transition: transform .2s ease; }
+    a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
+    .slot-off { text-decoration: line-through; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.08.88.9-3-.2-.31a8.2 8.2 0 1 1 6.88 3.76zm4.5-6.1c-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.3-2.88c-.25-.43.25-.4.72-1.34.08-.17.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.66.31c-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.73 2.65 4.2 3.72 1.56.67 2.17.73 2.95.62.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H18a2 2 0 0 1 2 2v1.5M4 8.5V17a2.5 2.5 0 0 0 2.5 2.5H18a2 2 0 0 0 2-2v-3.5M4 8.5h14.5a1.5 1.5 0 0 1 1.5 1.5v3.5h-4a2 2 0 0 1 0-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 20 20"><path d="M10 18s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="8" r="2.2" fill="currentColor"/></symbol>
+  </svg>
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-royal focus:px-4 focus:py-2 focus:font-semibold focus:text-white">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="sticky top-0 z-50 border-b border-line bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:px-6">
+      <a href="#top" class="flex min-w-0 shrink-0 items-center gap-2 whitespace-nowrap" aria-label="ARYX WEB, back to top">
+        <span class="grad flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] sm:h-9 sm:w-9" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 32 32"><path d="M16 5l10 22h-4.4L16 14.6 10.4 27H6z" fill="#fff"/></svg>
+        </span>
+        <span class="text-[15px] font-extrabold tracking-tight sm:text-lg">ARYX WEB</span>
+      </a>
+
+      <div class="flex min-w-0 shrink-0 items-center gap-1 sm:gap-6">
+        <nav class="hidden items-center gap-6 text-sm font-semibold sm:flex" aria-label="Primary">
+          <a href="#work" class="text-body transition-colors hover:text-royal">Work</a>
+          <a href="#pricing" class="text-body transition-colors hover:text-royal">Packages</a>
+        </nav>
+        <a href="https://wa.me/919372503446" data-wa="Hi Aryan, I visited AryxWeb.in and want to discuss a website." target="_blank" rel="noopener noreferrer"
+           class="btn-grad inline-flex min-h-[44px] shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl px-3.5 text-sm font-bold sm:px-5">
+          <svg class="h-4 w-4 shrink-0" aria-hidden="true"><use href="#i-wa"/></svg>Let's Talk
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ========== HERO ========== -->
+    <section id="top" class="mx-auto max-w-6xl px-4 pb-12 pt-10 sm:px-6 sm:pt-16 lg:pb-20">
+      <div class="grid items-center gap-10">
+        <div class="rise">
+          <p class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-bold tracking-wide text-royal shadow-card">
+            <span class="grad h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>MUMBAI DIGITAL BOOKING STUDIO
+          </p>
+          <h1 class="mt-6 text-[2.1rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.5rem]">
+            We Build Booking Systems That <span class="grad-text">Convert &amp; Automate.</span>
+          </h1>
+          <p class="mt-5 max-w-xl text-base leading-relaxed text-body sm:text-lg">
+            Fast, mobile-first websites with online advance payments, zero double-booking locks, and live owner dashboards—delivered in 3 to 5 days.
+          </p>
+          <p class="mt-2 max-w-xl text-sm text-soft">Features and delivery time depend on the package you choose.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#pricing" class="btn-grad inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl px-7 font-bold">View Packages <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="#work" class="inline-flex min-h-[52px] items-center justify-center rounded-xl border border-line bg-white px-7 font-bold text-ink shadow-card transition-colors hover:border-royal hover:text-royal">See Live Demos</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature bento strip -->
+      <ul class="mt-12 grid gap-4 sm:grid-cols-3">
+        <li class="bento bento-hover p-5 sm:p-6">
+          <div class="flex items-center justify-between">
+            <span class="grad flex h-10 w-10 items-center justify-center rounded-xl text-white"><svg class="h-5 w-5" aria-hidden="true"><use href="#i-cal"/></svg></span>
+            <span class="text-sm font-bold text-soft">01</span>
+          </div>
+          <h2 class="mt-4 text-base font-bold">24/7 Slot Booking</h2>
+          <p class="mt-1 text-sm leading-relaxed text-body">Automated date and time selection.</p>
+        </li>
+        <li class="bento bento-hover p-5 sm:p-6">
+          <div class="flex items-center justify-between">
+            <span class="grad flex h-10 w-10 items-center justify-center rounded-xl text-white"><svg class="h-5 w-5" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <span class="text-sm font-bold text-soft">02</span>
+          </div>
+          <h2 class="mt-4 text-base font-bold">Direct Advance</h2>
+          <p class="mt-1 text-sm leading-relaxed text-body">UPI/Card payments straight to your bank.</p>
+        </li>
+        <li class="bento bento-hover p-5 sm:p-6">
+          <div class="flex items-center justify-between">
+            <span class="grad flex h-10 w-10 items-center justify-center rounded-xl text-white"><svg class="h-5 w-5" aria-hidden="true"><use href="#i-lock"/></svg></span>
+            <span class="text-sm font-bold text-soft">03</span>
+          </div>
+          <h2 class="mt-4 text-base font-bold">Zero Double-Booking</h2>
+          <p class="mt-1 text-sm leading-relaxed text-body">Instant auto-lock on reserved slots.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========== WORK ========== -->
+    <section id="work" class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Systems Built for Real Operations</h2>
+        <p class="mt-4 text-base leading-relaxed text-body sm:text-lg">Explore practical digital experiences designed around the everyday needs of local businesses.</p>
+        <a href="#project-cards" class="btn-grad mt-6 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl px-5 text-center text-sm font-bold sm:w-auto sm:px-7 sm:text-base">Explore Live Projects &amp; Demos <span class="arrow" aria-hidden="true">↓</span></a>
+      </div>
+
+      <div id="project-cards" class="mt-10 grid scroll-mt-24 gap-6 lg:grid-cols-2">
+        <!-- Project 01 -->
+        <article class="bento bento-hover flex flex-col overflow-hidden">
+          <div class="pointer-events-none relative select-none bg-[#EAF0FE] p-4 pt-11 sm:p-6 sm:pt-12" role="img" aria-label="Visual preview (static, not interactive): illustrative preview of the booking portal: date and slot picker with a 500 rupee advance, and an owner control room list">
+            <span class="absolute right-3 top-3 rounded-full border border-line bg-white/90 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-body">VISUAL PREVIEW</span>
+                        <div class="grid grid-cols-[1.2fr_1fr] gap-3 text-xs">
+              <div class="rounded-2xl bg-white p-3 shadow-card">
+                <p class="font-bold">Choose date &amp; slot</p>
+                <div class="mt-2 flex gap-1.5">
+                  <span class="rounded-lg bg-page px-2 py-1 text-body">13</span>
+                  <span class="grad rounded-lg px-2 py-1 font-bold text-white">14</span>
+                  <span class="rounded-lg bg-page px-2 py-1 text-body">15</span>
+                </div>
+                <div class="mt-2 grid grid-cols-2 gap-1.5">
+                  <span class="rounded-lg border border-line px-1.5 py-1.5 text-center">11 AM</span>
+                  <span class="rounded-lg border border-line bg-page px-1.5 py-1.5 text-center text-body"><span class="slot-off">2 PM</span> Booked</span>
+                  <span class="rounded-lg border-2 border-royal bg-[#EFF4FF] px-1.5 py-1 text-center font-bold text-royal">5 PM ✓</span>
+                  <span class="rounded-lg border border-line px-1.5 py-1.5 text-center">8 PM</span>
+                </div>
+                <div class="mt-2 flex justify-between rounded-lg bg-page px-2 py-1.5"><span class="text-body">Advance</span><b class="text-royal">₹500</b></div>
+              </div>
+              <div class="rounded-2xl bg-white p-3 shadow-card">
+                <p class="font-bold">Control Room</p>
+                <ul class="mt-2 space-y-1.5">
+                  <li class="rounded-lg bg-page p-2">5 PM · Online<br><span class="text-body">₹500 paid</span></li>
+                  <li class="rounded-lg bg-page p-2">8 PM · Walk-in<br><span class="text-body">Cash · Locked</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col p-6 sm:p-8">
+            <p class="text-sm font-bold text-royal">Automated Booking System</p>
+            <h3 class="mt-1 text-xl font-bold sm:text-2xl">Private Theatre &amp; Celebration Booking Portal</h3>
+            <p class="mt-3 leading-relaxed text-body">Automated date and time-slot selection, ₹500 Razorpay advance token, instant slot locking, and a mobile Owner Control Room for walk-in cash reservations.</p>
+            <ul class="mt-5 space-y-2.5 text-sm">
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Date and time-slot selection</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>₹500 advance payment workflow</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Reserved-slot locking</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Owner booking dashboard</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Walk-in cash reservation management</li>
+            </ul>
+            <a href="https://wa.me/919372503446?text=Hi%20Aryan%2C%20I%20want%20to%20view%20your%20Live%20Booking%20Portal%20project." data-wa="Hi Aryan, I want to view your Live Booking Portal project." target="_blank" rel="noopener noreferrer"
+               class="btn-grad mt-7 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl px-6 text-sm font-bold sm:mt-auto sm:self-start">
+              View Live Booking Project <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 02 -->
+        <article class="bento bento-hover flex flex-col overflow-hidden">
+          <div class="pointer-events-none relative select-none bg-[#EAF0FE] p-4 pt-11 sm:p-6 sm:pt-12" role="img" aria-label="Visual preview (static, not interactive): illustrative preview of a local business website with a menu list, photo gallery placeholders, map location and a WhatsApp enquiry button">
+            <span class="absolute right-3 top-3 rounded-full border border-line bg-white/90 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-body">VISUAL PREVIEW</span>
+                        <div class="overflow-hidden rounded-2xl bg-white text-xs shadow-card">
+              <div class="flex items-center justify-between border-b border-line px-3 py-2.5">
+                <b>Your Cafe Name</b><span class="text-body">Menu · Gallery · Find us</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3 p-3">
+                <div>
+                  <p class="font-bold">Menu</p>
+                  <ul class="mt-2 space-y-1.5">
+                    <li class="flex justify-between border-b border-line pb-1.5"><span>Cold Coffee</span><span class="text-royal">₹—</span></li>
+                    <li class="flex justify-between border-b border-line pb-1.5"><span>Sandwich</span><span class="text-royal">₹—</span></li>
+                    <li class="flex justify-between"><span>Brownie</span><span class="text-royal">₹—</span></li>
+                  </ul>
+                  <p class="mt-3 flex items-center gap-1.5 text-body"><svg class="h-3.5 w-3.5 text-royal" aria-hidden="true"><use href="#i-pin"/></svg>Map &amp; address</p>
+                </div>
+                <div>
+                  <p class="font-bold">Gallery</p>
+                  <div class="mt-2 grid grid-cols-2 gap-1.5">
+                    <div class="h-11 rounded-lg bg-[#DCE6FD]"></div>
+                    <div class="h-11 rounded-lg bg-[#C7D7FB]"></div>
+                    <div class="h-11 rounded-lg bg-[#C7D7FB]"></div>
+                    <div class="h-11 rounded-lg bg-[#DCE6FD]"></div>
+                  </div>
+                  <p class="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-[#15803D] px-2 py-1.5 font-bold text-white"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col p-6 sm:p-8">
+            <p class="text-sm font-bold text-royal">Business Website</p>
+            <h3 class="mt-1 text-xl font-bold sm:text-2xl">Local Cafe, Restaurant &amp; Service Showcase</h3>
+            <p class="mt-3 leading-relaxed text-body">A high-speed mobile business website featuring a digital menu, photo gallery, Google Maps integration, and one-tap WhatsApp enquiry routing.</p>
+            <ul class="mt-5 space-y-2.5 text-sm">
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Mobile-first digital menu</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Photo gallery</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Google Maps integration</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Direct WhatsApp enquiries</li>
+              <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Local business information</li>
+            </ul>
+            <a href="https://wa.me/919372503446?text=Hi%20Aryan%2C%20I%20want%20to%20view%20your%20Live%20Business%20Showcase%20project." data-wa="Hi Aryan, I want to view your Live Business Showcase project." target="_blank" rel="noopener noreferrer"
+               class="btn-grad mt-7 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl px-6 text-sm font-bold sm:mt-auto sm:self-start">
+              View Live Showcase Project <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+      <p class="mt-5 text-sm text-body">Note: Above cards show interface previews. Click 'View Live Project' on any card to test the actual working website.</p>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section id="pricing" class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Simple Setup Packages</h2>
+        <p class="mt-4 text-base leading-relaxed text-body sm:text-lg">Choose the right digital solution for your business. Transparent one-time setup pricing, without confusing subscription-style presentation.</p>
+      </div>
+
+      <div class="mt-12 grid items-stretch gap-6 lg:grid-cols-3">
+        <!-- Tier 1 -->
+        <article class="bento bento-hover flex flex-col p-6 sm:p-8">
+          <h3 class="text-lg font-bold">Tier 1 — Digital Presence</h3>
+          <p class="mt-1 text-sm text-body">Best for: Cafes, Photographers &amp; Local Services</p>
+          <p class="mt-6 flex items-baseline gap-2"><span class="text-4xl font-extrabold tracking-tight">₹2,499</span><span class="text-sm text-body">One-time setup</span></p>
+          <ul class="mt-6 flex-1 space-y-3 border-t border-line pt-6 text-sm">
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Mobile-first custom website</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Photo gallery and menu</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Direct WhatsApp lead button</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Google Maps and Call setup</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Delivery in 2 days</li>
+          </ul>
+          <a href="https://wa.me/919372503446" data-wa="Hi Aryan, I'm interested in ARYX WEB Tier 1 — Digital Presence (₹2,499). Please share the details." target="_blank" rel="noopener noreferrer"
+             class="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-xl border border-line bg-white px-5 text-sm font-bold text-ink transition-colors hover:border-royal hover:text-royal">Select Tier 1 on WhatsApp</a>
+        </article>
+
+        <!-- Tier 2 -->
+        <article class="relative flex flex-col rounded-3xl border-2 border-royal bg-gradient-to-b from-[#F1F5FF] to-white p-6 shadow-lift transition-transform duration-200 hover:-translate-y-0.5 sm:p-8">
+          <span class="grad absolute -top-3 left-6 rounded-full px-3.5 py-1 text-xs font-extrabold tracking-wide text-white">MOST POPULAR</span>
+          <h3 class="text-lg font-bold">Tier 2 — Smart Booking Engine</h3>
+          <p class="mt-1 text-sm text-body">Best for: Box Cricket Turfs, Salons &amp; Studios</p>
+          <p class="mt-6 flex items-baseline gap-2"><span class="grad-text text-4xl font-extrabold tracking-tight">₹4,999</span><span class="text-sm text-body">One-time setup</span></p>
+          <ul class="mt-6 flex-1 space-y-3 border-t border-[#C9D8FB] pt-6 text-sm">
+            <li class="font-semibold">Everything included in Tier 1:</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Automated date and time-slot picker</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Zero double-booking auto-lock</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Online advance payment (UPI/Card)</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Live owner bookings list</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Delivery in 4 days</li>
+          </ul>
+          <a href="https://wa.me/919372503446" data-wa="Hi Aryan, I'm interested in ARYX WEB Tier 2 — Smart Booking Engine (₹4,999). Please share the details." target="_blank" rel="noopener noreferrer"
+             class="btn-grad mt-8 inline-flex min-h-[52px] items-center justify-center rounded-xl px-5 text-sm font-bold">Select Tier 2 on WhatsApp</a>
+        </article>
+
+        <!-- Tier 3 -->
+        <article class="bento bento-hover flex flex-col p-6 sm:p-8">
+          <h3 class="text-lg font-bold">Tier 3 — Full Operations Suite</h3>
+          <p class="mt-1 text-sm text-body">Best for: Private Theatres &amp; Banquet Halls</p>
+          <p class="mt-6 flex items-baseline gap-2"><span class="text-4xl font-extrabold tracking-tight">₹8,499</span><span class="text-sm text-body">One-time setup</span></p>
+          <ul class="mt-6 flex-1 space-y-3 border-t border-line pt-6 text-sm">
+            <li class="font-semibold">Everything included in Tier 2:</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Offline walk-in slot lock</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>One-tap Today's Bookings filter</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Instant slot cancellation and auto-release</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>Dynamic multi-hour package pricing</li>
+            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true"><use href="#i-check"/></svg>30 days priority technical support</li>
+          </ul>
+          <a href="https://wa.me/919372503446" data-wa="Hi Aryan, I'm interested in ARYX WEB Tier 3 — Full Operations Suite (₹8,499). Please share the details." target="_blank" rel="noopener noreferrer"
+             class="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-xl border border-line bg-white px-5 text-sm font-bold text-ink transition-colors hover:border-royal hover:text-royal">Select Tier 3 on WhatsApp</a>
+        </article>
+      </div>
+      <p class="mt-6 text-sm text-body">All prices are one-time setup fees. Domain, hosting, payment gateway and other third-party service charges, if applicable, can be discussed before the project is confirmed.</p>
+    </section>
+
+    <!-- ========== ENQUIRY ========== -->
+    <section id="enquiry" class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+      <form id="enquiry-form" novalidate class="bento border-2 border-[#BFD3FB] p-6 sm:p-10">
+        <h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Let's Build Something for Your Business.</h2>
+        <p class="mt-3 leading-relaxed text-body">Tell us a little about your business and we'll connect with you on WhatsApp.</p>
+
+        <div class="mt-8">
+          <label for="f-name" class="block text-sm font-bold">Your Name</label>
+          <input id="f-name" type="text" required autocomplete="name" placeholder="Enter your name" aria-describedby="e-name"
+                 class="mt-2 min-h-[52px] w-full rounded-xl border border-line bg-page px-4 text-base text-ink placeholder:text-soft focus:border-royal focus:bg-white focus:outline-none focus:ring-4 focus:ring-royal/15">
+          <p id="e-name" class="mt-1.5 hidden text-sm font-medium text-red-600" role="alert"></p>
+        </div>
+        <div class="mt-5">
+          <label for="f-biz" class="block text-sm font-bold">Business / Shop Name</label>
+          <input id="f-biz" type="text" required autocomplete="organization" placeholder="Enter your business name" aria-describedby="e-biz"
+                 class="mt-2 min-h-[52px] w-full rounded-xl border border-line bg-page px-4 text-base text-ink placeholder:text-soft focus:border-royal focus:bg-white focus:outline-none focus:ring-4 focus:ring-royal/15">
+          <p id="e-biz" class="mt-1.5 hidden text-sm font-medium text-red-600" role="alert"></p>
+        </div>
+        <div class="mt-5">
+          <label for="f-pkg" class="block text-sm font-bold">Package</label>
+          <select id="f-pkg" required aria-describedby="e-pkg"
+                  class="mt-2 min-h-[52px] w-full rounded-xl border border-line bg-page px-4 text-base text-ink focus:border-royal focus:bg-white focus:outline-none focus:ring-4 focus:ring-royal/15">
+            <option value="" selected>Select a package</option>
+            <option value="Tier 1 — Digital Presence">Tier 1 — Digital Presence</option>
+            <option value="Tier 2 — Smart Booking Engine">Tier 2 — Smart Booking Engine</option>
+            <option value="Tier 3 — Full Operations Suite">Tier 3 — Full Operations Suite</option>
+            <option value="Custom Requirement">Custom Requirement</option>
+          </select>
+          <p id="e-pkg" class="mt-1.5 hidden text-sm font-medium text-red-600" role="alert"></p>
+        </div>
+
+        <button id="submit-btn" type="submit" class="btn-grad mt-8 inline-flex min-h-[54px] w-full items-center justify-center gap-2 rounded-xl px-6 font-bold disabled:opacity-60">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#i-wa"/></svg><span id="submit-label">Send Enquiry on WhatsApp</span>
+        </button>
+        <p id="form-status" class="mt-4 hidden text-sm text-body" role="status" aria-live="polite"></p>
+        <p class="mt-4 text-xs text-soft">Nothing is sent to a server. Your details only appear in the WhatsApp message you choose to send.</p>
+      </form>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-t border-line bg-white">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2">
+      <div>
+        <p class="flex items-center gap-2 text-lg font-extrabold tracking-tight">
+          <span class="grad flex h-8 w-8 items-center justify-center rounded-[10px]" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 32 32"><path d="M16 5l10 22h-4.4L16 14.6 10.4 27H6z" fill="#fff"/></svg></span>ARYX WEB
+        </p>
+        <p class="mt-3 text-sm text-body">Sion / Kurla, Mumbai, Maharashtra</p>
+      </div>
+      <ul class="space-y-3 text-sm md:justify-self-end">
+        <li><span class="text-body">Phone: </span><a class="font-semibold text-ink hover:text-royal" href="tel:+919372503446">+91 93725 03446</a></li>
+        <li><span class="text-body">Instagram: </span><a class="font-semibold text-ink hover:text-royal" href="https://www.instagram.com/aryxweb.in/" target="_blank" rel="noopener noreferrer">@aryxweb.in</a></li>
+      </ul>
+    </div>
+    <div class="border-t border-line py-5 text-center text-xs text-body">© 2026 AryxWeb.in. All rights reserved.</div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var WA_NUMBER = '919372503446';
+
+      // Builds a WhatsApp link with a URL-encoded message
+      function waLink(message) {
+        return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+      }
+
+      // Every CTA with data-wa gets its contextual message (static href is the no-JS fallback)
+      document.querySelectorAll('[data-wa]').forEach(function (el) {
+        el.setAttribute('href', waLink(el.getAttribute('data-wa')));
+      });
+
+      // ===== Enquiry form =====
+      var form = document.getElementById('enquiry-form');
+      var btn = document.getElementById('submit-btn');
+      var label = document.getElementById('submit-label');
+      var status = document.getElementById('form-status');
+      var fields = [
+        { el: document.getElementById('f-name'), err: document.getElementById('e-name'), msg: 'Please enter your name.' },
+        { el: document.getElementById('f-biz'), err: document.getElementById('e-biz'), msg: 'Please enter your business or shop name.' },
+        { el: document.getElementById('f-pkg'), err: document.getElementById('e-pkg'), msg: 'Please select a package.' }
+      ];
+
+      function setError(f, show) {
+        f.err.textContent = show ? f.msg : '';
+        f.err.classList.toggle('hidden', !show);
+        f.el.setAttribute('aria-invalid', show ? 'true' : 'false');
+        f.el.classList.toggle('border-red-500', show);
+      }
+      fields.forEach(function (f) {
+        ['input', 'change'].forEach(function (ev) {
+          f.el.addEventListener(ev, function () { if (f.el.value.trim()) setError(f, false); });
+        });
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (btn.disabled) return; // prevents accidental duplicate submission
+
+        var firstBad = null;
+        fields.forEach(function (f) {
+          var bad = !f.el.value.trim();
+          setError(f, bad);
+          if (bad && !firstBad) firstBad = f.el;
+        });
+        if (firstBad) { firstBad.focus(); return; } // values stay in place
+
+        var message = "Hi Aryan, I'd like to enquire about your website development services.\n\n" +
+          'Name: ' + fields[0].el.value.trim() + '\n' +
+          'Business: ' + fields[1].el.value.trim() + '\n' +
+          'Interested Package: ' + fields[2].el.value + '\n\n' +
+          'Please share more details.';
+        var url = waLink(message);
+
+        btn.disabled = true;
+        label.textContent = 'Opening WhatsApp…';
+        var win = window.open(url, '_blank');
+        status.classList.remove('hidden');
+        if (win) {
+          try { win.opener = null; } catch (err) {}
+          status.textContent = 'WhatsApp is opening with your message. Press send there to share your enquiry.';
+        } else {
+          status.innerHTML = 'Your browser blocked the new tab. <a class="font-bold text-royal underline" target="_blank" rel="noopener noreferrer" href="' + url + '">Open WhatsApp to send your enquiry</a>.';
+        }
+        setTimeout(function () { btn.disabled = false; label.textContent = 'Send Enquiry on WhatsApp'; }, 3000);
+      });
+    })();
+  </script>
+</body>
+</html>
